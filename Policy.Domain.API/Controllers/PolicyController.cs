@@ -32,7 +32,9 @@ namespace Policy.Domain.API.Controllers
         public ActionResult<JMPolicy> UpdatePolicy(string id, JMPolicy pol)
         {
             var query = new GetPolicybyIdQuery { Id = id };
+
             var policy = _mediator.Send(query);
+            
             if (policy == null)
             {
                 return NotFound();
